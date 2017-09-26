@@ -1,0 +1,18 @@
+KERNEL_VERSION=4.9.43-2-SPCKFSH
+
+_run_depmod() {
+	echo "      updating module dependencies..."
+	depmod -a ${KERNEL_VERSION}
+}
+
+post_install() {
+	_run_depmod
+}
+
+post_upgrade() {
+	_run_depmod
+}
+
+post_remove() {
+	_run_depmod
+}
