@@ -1,2 +1,4 @@
 /pkg
 *.pkg.tar.xz
+src/
+taudac-driver-dkms/
