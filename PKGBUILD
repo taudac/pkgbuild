@@ -13,7 +13,7 @@ install=taudac.install
 
 pkgver() {
 	# Sanity check, this should not change $pkgver
-	git -C ../../taudac-driver-dkms describe --tags | sed 's/taudac-//;s/\([^-]*-g\)/r\1/;s/-/_/g'
+	git -C $srcdir/taudac-driver-dkms describe --tags | sed 's/taudac-//;s/\([^-]*-g\)/r\1/;s/-/_/g'
 }
 
 build() {
