@@ -1,6 +1,6 @@
 pkgname=rune-4.9.73-taudac
 pkgver=2.2.2
-pkgrel=1
+pkgrel=2
 pkgdesc="Kernel modules for the TauDAC-DM101 Raspberry Pi sound card."
 arch=('armv7h')
 depends=('linux-firmware>=20160113' 'linux-raspberrypi>=4.9.73')
@@ -21,6 +21,7 @@ build() {
 }
 
 package() {
+	sed -e "s/KERNELVER=.*/KERNELVER=$(uname -r)/g" -i $startdir/taudac.install
 	make -C $srcdir/taudac-driver-dkms/src PACKAGEDIR="$pkgdir/usr" package
 }
 
