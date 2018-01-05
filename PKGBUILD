@@ -21,6 +21,7 @@ build() {
 }
 
 package() {
+	sed -e "s/KERNELVER=.*/KERNELVER=$(uname -r)/g" -i $startdir/taudac.install
 	make -C $srcdir/taudac-driver-dkms/src PACKAGEDIR="$pkgdir/usr" package
 }
 

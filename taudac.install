@@ -1,7 +1,8 @@
+KERNELVER=4.9.70
 
 _run_depmod() {
-	echo "      updating module dependencies..."
-	depmod -a
+	echo "      updating module dependencies for kernel ${KERNELVER}..."
+	depmod ${KERNELVER}
 }
 
 post_install() {
