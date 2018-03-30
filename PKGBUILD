@@ -1,9 +1,9 @@
-pkgname=ropieee-4.9.70-taudac
+pkgname=ropieee-4.9.80-taudac
 pkgver=2.2.2
 pkgrel=1
 pkgdesc="Kernel modules for the TauDAC-DM101 Raspberry Pi sound card."
 arch=('armv7h')
-depends=('linux-firmware>=20180119' 'linux-raspberrypi-dsd>=4.9.70')
+depends=('linux-firmware>=20180314' 'linux-raspberrypi-dsd>=4.9.80')
 makedepends=('git' 'make' 'gcc' 'bc')
 url="http://taudac.com/"
 source=("git+https://github.com/taudac/taudac-driver-dkms.git#tag=taudac-$pkgver")

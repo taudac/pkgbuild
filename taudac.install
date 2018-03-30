@@ -1,4 +1,4 @@
-KERNELVER=4.9.70-1-SPCKFSH
+KERNELVER=4.9.80-1-SPCKFSH
 
 _run_depmod() {
 	echo "      updating module dependencies for kernel ${KERNELVER}..."
