@@ -1,4 +1,4 @@
-KERNELVER=4.9.73-2-ARCH
+KERNELVER=4.19.80-1-ARCH
 
 _run_depmod() {
 	echo "      updating module dependencies for kernel ${KERNELVER}..."

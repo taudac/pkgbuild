@@ -1,0 +1,38 @@
+--- include/linux/platform_data/si5351.h	2018-01-03 16:02:44.108204442 +0100
++++ si5351.h	2019-10-23 22:52:10.979132456 +0200
+@@ -81,6 +81,24 @@
+ };
+ 
+ /**
++ * enum si5351_sync_mode - Si5351 clock output synchronization type
++ * @SI5351_SYNC_FREE: CLKx is free-running, it has an undefined phase
++ * 	relationship to other output clocks
++ * @SI5351_SYNC_MASTER: CLKx is phase synchronization master, enabling this
++ * 	clock enables all synchronization slave clocks, all output clocks in the
++ * 	synchronization domain are configured to have a fixed phase relationship
++ * 	to each other
++ * @SI5351_SYNC_SLAVE: CLKx is phase synchronization slave, it is automatically
++ * 	enabled once the synchronization master clock is enabled, the phase is
++ * 	configured to have a fixed offset to the synchronization masterclock
++ */
++enum si5351_sync_mode {
++	SI5351_SYNC_FREE = 0,
++	SI5351_SYNC_SLAVE,
++	SI5351_SYNC_MASTER,
++};
++
++/**
+  * struct si5351_clkout_config - Si5351 clock output configuration
+  * @clkout: clkout number
+  * @multisynth_src: multisynth source clock
+@@ -95,8 +113,10 @@
+ 	enum si5351_clkout_src clkout_src;
+ 	enum si5351_drive_strength drive;
+ 	enum si5351_disable_state disable_state;
++	enum si5351_sync_mode sync_mode;
+ 	bool pll_master;
+ 	bool pll_reset;
++	int  delay;
+ 	unsigned long rate;
+ };
+ 
